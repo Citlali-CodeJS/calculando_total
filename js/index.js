@@ -5,6 +5,7 @@ let valor = 0
 precioSpan = document.querySelector(".precio-inicial");
 precioSpan.innerHTML = precio
 
+
 function total(cantidad){
     valorSpan = document.querySelector(".valortotal")
     valor = cantidad * precio
@@ -18,15 +19,11 @@ function add() {
 }
 function sub() {
     cantidadSpan = document.querySelector(".cantidad");
-    if (cantidad <= 0){
-        alert("CÓMO QUE NINGUNA?🤨")
-        cantidad <= 0 
-        total(cantidad)
-        cantidadSpan.innerHTML = cantidad        
+    cantidad = Math.max(cantidad - 1, 0);
+    if (cantidad === 0) {
+        alert("CÓMO QUE NINGUNA?🤨");
     }
-    else{
-        cantidad = cantidad - 1
-        total(cantidad)
-        cantidadSpan.innerHTML = cantidad
-    }
+    total(cantidad);
+    cantidadSpan.innerHTML = cantidad;
 }
+   
